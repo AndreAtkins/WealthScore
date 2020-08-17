@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "wealthscore-b7a7b": {
+      "hosting": {
+        "WealthScore": [
+          "wealthscore-b7a7b"
+        ]
+      }
+    }
+  }
+}

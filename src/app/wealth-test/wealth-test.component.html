@@ -1,0 +1,80 @@
+<div>
+    <!-- [ngStyle]="{ 'background-image': 'url(' + image + ')'}"> -->
+ 
+<div id = "navbar">
+<p id = "header" [ngStyle] = "{'text-align': 'center'}"><strong>WealthScore™💰</strong></p>
+<p id = "title">Building wealth? Whats your WealthScore!?</p>
+</div>
+<div id = "inform2"> 
+<p id = "inform"[ngStyle] = "{'text-align': 'center'}">
+Did you know that wealth is not synonomous with income?
+Many high income earning people never obtain generational wealth. 
+This is because wealth principals are not practiced, but ignored 
+and sometimes even socially frowned upon. Did you know that your credit score 
+alone isnt enough to determine your wealth potential or even financial 
+wellbeing? This is why we created WealthScore, an algorithm that uses 
+your current financial situation, to determine how efficiently you're 
+actively building wealth and even give insight on how to improve or maintain your score.
+</p>
+</div>
+<div *ngIf = "!testVisable" id = "note">
+    <p id = "warn" [ngStyle] = "{'text-align': 'center'}"><strong>Note</strong>:Refer to your credit report for accuracy.
+   (max WealthScore is 100)</p>
+ </div> 
+<div class = "buttons">
+<button id = "startbutton" *ngIf = "testButtonVisable" (click) = "activateTest()" color = "accent" mat-raised-button>Start WealthScore™ Test!</button>
+<button *ngIf = "!testButtonVisable" (click) = "deactivateTest()" color = "accent" mat-raised-button>Back ⬅️</button>
+
+</div>
+
+<div>
+<form *ngIf = "testVisable" ngNativeValidate (submit) = "calcAverage()">
+<div>
+<label>1. What is your credit score?</label>
+<input class = "input" required min="300"  max = "850" type = "number"  name = "creditScore" [(ngModel)] = "creditScore">
+</div>
+<div>
+<label>2. What is your current total net annual income?</label>
+<input class = "input" required min="0" type = "number" step="0.01" name= "income" [(ngModel)] = "income">
+</div>
+<div>
+<label>3. What are your monthly expenses (be realistic! give allowance for miscellaneous)</label>
+<input class = "input" required min="0" type = "number" step="0.01" name = "expenses" [(ngModel)] = "expenses">
+</div>
+<div>
+<label>4. What is the current % average interest on your total debt (amount owed - amount borrowed/amount borrowed)(*100))</label>
+<input class = "input" required min="0" type = "number" step="0.01" name = "interest"[(ngModel)] = "interest">
+</div>
+<div>
+<label>5. What is the current % average return of your investments/capital gains (if you aren't actively investing enter 0, if you have losses enter a negative)</label>
+<input class = "input" required type = "number" step="0.01" name = "return" [(ngModel)] = "returns">
+</div>
+<div class = "buttons">
+<button  color = "accent" mat-raised-button type = "submit">Get WealthScore™</button>
+</div>
+</form>
+</div>
+<div id = "scoredisplay" *ngIf = "showScore">
+    <p *ngIf = "showScore">
+        Your current WealthScore is:  
+    </p>
+    <p id = "score"> <strong>
+        {{ score | number : '1.0-0'}}
+    </strong>
+    </p>
+    <p id = "advice"class= "worddiv">
+        {{advice}}
+    </p>
+    </div>
+<div *ngIf = "isNotZero()">
+</div>
+</div>
+<div id = "foot">
+<div>
+Created & developed by Andre Atkins
+</div>   
+Contact Me @: newbloofriends@gmail.com
+</div>
+<!-- <p>{{grade}}</p> -->
+
+

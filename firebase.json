@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "WealthScore",
+      "public": "dist/WealthScore",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
